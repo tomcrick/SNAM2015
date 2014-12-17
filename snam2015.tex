@@ -1,0 +1,161 @@
+\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+%\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+%\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{graphicx}
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% correct typesetting of URLs
+\usepackage{url}
+% correct typesetting of metric units
+\usepackage[textstyle,squaren]{SIunits}
+% maths
+%\usepackage{amsthm}
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}
+% bib
+\usepackage[semicolon,sort&compress,nonamebreak]{natbib}
+% hyperlinks for references
+\usepackage[plainpages=false,breaklinks]{hyperref}
+
+
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+
+% Insert the name of "your journal" with
+\journalname{Social Network Analysis and Mining}
+
+\begin{document}
+
+\title{Measuring UK Crime Gangs: A Social Network Problem
+%\thanks{Grants or other notes
+%about the article that should go on the front page should be
+%placed here. General acknowledgments should be placed at the end of the article.}
+}
+%\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{Giles Oatley \and Tom Crick}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+\institute{
+  Giles Oatley \and Tom Crick
+  \at Department of Computing \& Information Systems, 
+  Cardiff Metropolitan University, Cardiff CF5 2YB, UK\\
+  \email{\{goatley,tcrick\}@cardiffmet.ac.uk}
+}
+
+%cover letter
+% Dear Editor-in-Chief,
+
+% Please find enclosed our manuscript, "Measuring UK Crime Gangs: A
+% Social Network Problem" by Oatley and Crick, which we would like to submit for
+% publication as an original article in Social Network Analysis and
+% Mining.
+
+% To our knowledge, this is the first report showing preliminary
+% outcomes from a study to tackle the problem of
+% gang-related crime in the UK during the 2000s; we believe our
+% findings would appeal to the readership of SNAM.
+
+% Please address all correspondence to me at tcrick@cardiffmet.ac.uk; we
+% confirm that this manuscript has not been published elsewhere and is
+% not under consideration by another journal. All authors have approved
+% the manuscript and agree with its submission to SNAM.
+
+% We look forward to hearing from you at your earliest convenience.
+
+% With kind regards,
+
+% Dr Tom Crick
+% tcrick@cardiffmet.ac.uk
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+\maketitle
+
+\begin{abstract}
+This paper describes the output of a study to tackle the problem of
+gang-related crime in the UK; we present the intelligence and
+routinely gathered data available to a UK regional police force, and
+describe an initial social network analysis of gangs in the Greater
+Manchester area of the UK between 2000-2006.
+
+By applying social network analysis techniques, we attempt to detect
+the birth of two new gangs based on local features (modularity,
+cliques) and global features (clustering coefficient). Thus for the
+future, identifying the changes in these can help us identify the
+possible birth of new gangs (sub-networks) in the social system.
+
+Furthermore, we study the dynamics of these networks globally and
+locally, and have identified the global characteristics that tell us
+that they are not random graphs -- they are small world graphs --
+implying that the formation of gangs is not a random event. However,
+we are not yet able to conclude anything significant about scale-free
+characteristics due to insufficient sample size.
+
+A final analysis looks at gang roles, and develops further insight
+into the nature of the different link types, along the lines of
+Klerk’s `third generation' analysis.
+
+\keywords{Social network analysis \and Scale-free networks \and
+Small-world networks \and Gangs \and Gun crime \and Social distance}
+% \PACS{PACS code1 \and PACS code2 \and more}
+% \subclass{MSC code1 \and MSC code2 \and more}
+\end{abstract}
+
+
+\section{Introduction}\label{sec:introduction}
+
+There have been numerous studies of criminal networks and gangs; as
+highlighted in \citet{hughes:2005}, the popularity of qualitative
+studies of gang-related issues soared during the 1980s and 1990s,
+following renewed media and public interest, statistical advances, and
+increased government funding. Qualitative studies have taken three
+major forms: (a) surveys of law enforcement officials (and at times
+other agency personnel) regarding gangs in their jurisdictions and
+actions taken to control them, (b) analyses of data compiled by law
+enforcement agencies and/or court officials, and (c) self-reports of
+samples of youth and/or young adults.  There have been calls for
+research evidence to be drawn into police practice, but development of
+such an agenda has been hampered by a range of
+factors~\citep{bullock+tilley:2009}. Research into youth gangs,
+especially the age at which youths join gangs and the early
+precursors, has been conducted in the USA and
+Canada~\citep{hill-et-al:2001}, China~\citep{webb-et-al:2011} and Hong
+Kong~\citep{lo:2011}.
+
+However, the UK has been slow in carrying out research into gang crime
+(excepting work done in North East London~\cite{pitts:2007} in 2007),
+and especially into what actions work best at controlling it. In
+Greater Manchester, a region in the north of the UK that has had a
+significant gun crime problem related to gang activity, primarily due
+to acute social deprivation in the
+area~\citep{BBCNews2003,BBCNews2004,HalesLewisSilverstone2006}, recent
+police initiatives have started to address this
+problem~\citep{BBCNews2010}.
+
+\begin{acknowledgements}
+We acknowledge the UK's Engineering \& Physical Sciences Research
+Council (EPSRC) Sandpit on Gun Crime (September 2005, Warwickshire,
+UK), funded by the IDEAS Factory; and the assistance of Xcalibre, the Greater
+Manchester Police's specialist gang crime task force.
+\end{acknowledgements}
+
+% BibTeX users
+\bibliographystyle{spbasic}      % basic style, author-year citations
+\bibliography{snam2015}   % name your BibTeX data base
+
+\end{document}
+
