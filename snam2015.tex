@@ -110,8 +110,8 @@ A final analysis looks at gang roles, and develops further insight
 into the nature of the different link types, along the lines of
 Klerk’s `third generation' analysis.
 
-\keywords{Social network analysis \and Scale-free networks \and
-Small-world networks \and Gangs \and Gun crime \and Social distance}
+\keywords{Gangs \and Gun crime \and Scale-free networks \and
+Small-world networks \and Social distance \and Crime policy \and Social network analysis}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
 \end{abstract}
@@ -135,11 +135,14 @@ factors~\citep{bullock+tilley:2009}. Research into youth gangs,
 especially the age at which youths join gangs and the early
 precursors, has been conducted in the USA and
 Canada~\citep{hill-et-al:2001}, China~\citep{webb-et-al:2011} and Hong
-Kong~\citep{lo:2011}.
+Kong~\citep{lo:2011}, as well as the link between gun ownership and
+gang membership~\citep{bjerregaard+lizotte:1995,bricknell:2008}.
 
 However, the UK has been slow in carrying out research into gang crime
-(excepting work done in North East London~\cite{pitts:2007} in 2007),
-and especially into what actions work best at controlling it. In
+especially into what actions work best at controlling
+it~\citep{pitts:2007,hallsworth+silverstone:2009}, even with an
+increased policy
+focus~\citep{HalesLewisSilverstone2006,golding+mcclory:2008}. In
 Greater Manchester, a region in the north of the UK that has had a
 significant gun crime problem related to gang activity, primarily due
 to acute social deprivation in the
@@ -201,13 +204,13 @@ Manchester appears to have begun in the late 1970s at a time of rising
 unemployment and poverty in the area.
 
 Numerous shootings -- both fatal and non-fatal -- have taken place
-over the years as the the Pepperhill, Gooch, Doddington and Longsight
+over the years as the Pepperhill, Gooch, Doddington and Longsight
 Crew gangs (see Table~\ref{table:gangnames}) have clashed over drug
 territories and other disputes. Many of these gun fire exchanges were
 on public streets, some were planned acts and some were spontaneous
 events.
 
-\begin{table}[htb]
+\begin{table}[!ht]
 \centering
 \begin{tabularx}{\columnwidth}{c X c}
 %\begin{tabular}{c c c} 
@@ -228,7 +231,7 @@ D & Rusholme Crew Gangsters & c.2004\\ %[1ex] % [1ex] adds vertical space
 In 2001, a new approach to tackling gun crime began to develop with
 police working more closely with the local community and other
 agencies. The Manchester Multi-Agency Gang Strategy (MMAGS), a
-multi-agency approach to tackling gun crime and detering young people
+multi-agency approach to tackling gun crime and deterring young people
 from entering into a gang/gun culture was initiated as a result of a
 UK Home Office report \citep{BullockTilley2002}. The report concludes:
 
@@ -305,7 +308,7 @@ origin, reason reported and date of occurrence.
 
 The network links available are quite different to other existing work
 with networks of burglars or retail fraudsters
-\citep{OatleyZeleznikowLearyEwart2005,OatleyMcGarryEwart2006}). Examples
+\citep{OatleyZeleznikowLearyEwart2005,OatleyMcGarryEwart2006,oatley+crick:2014}). Examples
 of the data (link types) from which the networks of offenders are
 developed can be found in Table~\ref{tab:associates}. These link types
 are: \emph{Accomplice}; \emph{Brother-Brother}; \emph{Boyfriend};
@@ -433,9 +436,14 @@ that describes that there are leaders in gangs who are responsible for
 `recruitment' is at odds with our findings, that our network data does
 not find any obvious leadership (which is in line with many
 criminological studies on gangs). Various network outcomes contradict
-current stereotypes of gang behavior, for example the existence of
+current stereotypes of gang behaviour, for example the existence of
 many links and intermediaries between different and sometimes
 conflicting gangs.
+
+Finally, there are recognised methodological issues with current
+evidence on girls and gangs in the UK \citep{batchelor:2009}, partly
+related to the difficulties associated with defining what constitutes
+a `gang' or being a `gang member'.
 
 
 \section{Identifying community structure}\label{sec:communitystructure}
@@ -452,7 +460,7 @@ are labelled \emph{a*} and \emph{b*}. In this way it is easier to see
 the communities.
 
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{images/2002core_labelled}
 \caption{Link reduction, showing Gangs A and B and emergence of
@@ -471,11 +479,10 @@ small-world networks.
 \subsection{Small-world networks}\label{sec:smallworld}
 
 Table~\ref{tab:networkmeasuresyears} presents the clustering
-coefficient \citep{WattsStrogatz1998} (CC) for each individual year,
+coefficients (CC)\\ \citep{WattsStrogatz1998} for each individual year,
 alongside the node and edge counts and various other measures to
 describe the network. For any simple connected graph \emph{G} with at
-least two vertices, the clustering coefficient\\
-(1-neighbourhood) measures the extent to
+least two vertices, the clustering coefficient (1-neighbourhood) measures the extent to
 which vertices linked to any given vertex \emph{v} are also linked to
 each other \citep{WattsStrogatz1998}. Or in other words, are the friends of my friends also my
 friends? This is 1-neighbourhood clustering. The clustering
@@ -618,7 +625,7 @@ actually smaller than \emph{log(n)}, indicating scale-free networks.
 The statistics on degree centrality were low, indicating that there is
 no group leader. As we know when Gangs C and D are formed (2001
 and 2004 respectively), it is interesting to note that the
-characteristic of the networks at this time are that the betweeness
+characteristic of the networks at this time are that the betweenness
 centralisation reaches 0.2. It is necessary to compare the closeness and
 betweenness averages for each gang against the value for the overall
 network.
@@ -779,7 +786,7 @@ for Gang B, whereas all other gangs suffer a decrease in clustering.
 \end{figure*}
 
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{images/gangscc1years}
 \caption{Per year clustering coefficients for each gang. Gang C was formed in 2001, Gang D in 2004.} 
@@ -798,7 +805,7 @@ committed), investigating who are the most hardcore offenders, and
 what if anything characterises the members with direct links to those
 who commit murder or use firearms. We consider the role of 'trust'
 relationships such as partnerships, family ties, and are interested in
-comparing these ties with those based on coarrest data.
+comparing these ties with those based on co-arrest data.
 
 Recalling the definition presented earlier,\\`third-generation' social
 network analysis focuses much more intensely on the content of the
@@ -825,7 +832,7 @@ clear subgroups, role differentiation, established territories and
 neighbourhood control, vertical links into higher echelon organised
 crime, and organised drug dealing activity.
 
-The \emph{degree} values from our analysis the the gangs suggested
+The \emph{degree} values from our analysis of the gangs suggested
 that there are no obvious single leaders, however intelligence
 suggests that South Manchester gangs in the UK do appear to have a
 basic system of hierarchy. Gang's A and B members store firearms at
@@ -993,7 +1000,7 @@ nodes in a core are also reasonably well-connected to those in the
 periphery~\citep{rombach-et-al:2014}.
 
 One way is using the continuous scoring devised by
-\citet{borgatti+everett:2000}, generalized recently by
+\citet{borgatti+everett:2000}, generalised recently by
 \citet{rombach-et-al:2014} to an approach that gives nodes values
 (i.e., core scores) along a continuous spectrum between nodes that lie
 most deeply in a network core or at the far reaches of a network
@@ -1006,7 +1013,7 @@ complete network, plus additional networks for relatives
 nodes.
 
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{images/legend2006}
 \caption{Gangs A, B, C, D labelled, showing affinities between Gangs A
@@ -1014,21 +1021,21 @@ nodes.
 \label{fig:legend2006} 
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{images/murdershrink.pdf}
 \caption{Gangs A, B, C, D and murder.}
 \label{fig:murdershrink} 
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{images/realrelatives.pdf}
 \caption{Relatives and gangs.}
 \label{fig:realrelatives} 
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{images/girlfriends.pdf}
 \caption{Girlfriend/boyfriend and gangs.}
@@ -1097,31 +1104,39 @@ The work presented in this paper contains our initial findings about
 the offender/gang networks in Manchester in the UK, using network
 analysis, extending and building upon previous
 work~\citep{oatley+crick_asonam2014,oatley+crick_fosintsi2014}. The
-uses of this technology in an operational context are
-significant. Even using the networks merely as visual representations
-of otherwise cognitively unmanageable data contained in spreadsheets
-and databases is operationally very useful, for knowledge sharing and
-training, and identifying key offenders. When further pre-processing
-is carried out, and the quality of the data collection process is
-improved, there will be sigificant future work available with this
-dataset.
-
-The police crime recording database is routinely gathered and
-available for analysis. The additional databases of histories and
-associates of gang offenders are routinely gathered by the UK's
-National Crime
+police crime recording database is routinely gathered and available
+for analysis. The additional databases of histories and associates of
+gang offenders are routinely gathered by the UK's National Crime
 Agency~\footnote{\url{http://www.nationalcrimeagency.gov.uk/}}, who
 investigate gang and gun-related crimes. These data sources are
-potential rich sources of information for computer science
+potential rich sources of information for data science and analytical
 technologies to deliver crime prevention and detection decision
-support systems.
+support systems. Criminal behaviour (modus operandi and offence
+profiling) is to be incorporated into social network analysis.  This
+approach uses retrospective methodologies, appropriate given the time
+scale and the pilot nature of most work. Future work, such as looking
+at family and friends networks, crimes histories and progression of
+crimes, must be given the resources in order to increase the validity
+of decisions concerning their contribution, as well as develop wider
+socio-cultural outcomes.
 
-Criminal behaviour (modus operandi and offence profiling) is to be
-incorporated into social network analysis.  This approach uses
-retrospective methodologies, appropriate given the time scale and the
-pilot nature of most work. Future work must be given the resources to
-adopt prospective methods in order to increase the validity of
-decisions concerning their contribution.
+The uses of this technology in an operational context are thus
+significant. As highlighted in\\ \citet{golding+mcclory:2008}, poor
+intelligence and information sharing between schools and police is a
+pervasive problem throughout England and Wales, along with
+un-coordinated approaches to outreach work leading to missed
+opportunities for intervention.  With gangs taking over territory,
+creating virtual ``no-go'' areas\\(where residents may fear for their
+safety), alongside unclear domestic legislation regarding firearms and
+other offensive weapons over the study period, there is a significant
+opportunity for police to utilise the techniques we have described for
+widespread operational benefits. Even using the networks merely as
+visual representations of otherwise cognitively unmanageable data
+contained in spreadsheets and databases is operationally useful, for
+knowledge sharing and training, and identifying key offenders. With
+further pre-processing, the quality of the data collection process and
+analysis is improved, with significant future applications (especially
+in a policy context) available.
 
 \begin{acknowledgements}
 We acknowledge the UK's Engineering \& Physical Sciences Research
