@@ -13,7 +13,8 @@
 %
 % insert here the call for the packages your document requires
 %\usepackage{latexsym}
-\usepackage{tabularx}
+\usepackage{tabularx,ragged2e}
+\usepackage{multirow}
 \usepackage{url}
 \usepackage[textstyle,squaren]{SIunits}
 % maths
@@ -31,6 +32,9 @@
 % please place your own definitions here and don't use \def but
 % \newcommand{}{}
 \newcommand\Envelope{{\fontencoding{U}\fontfamily{ding}\selectfont\symbol{'014}}}
+
+% fix table columns
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 % Insert the name of "your journal" with
 \journalname{Social Network Analysis and Mining}
@@ -93,7 +97,7 @@
 \begin{abstract}
 This paper describes the output of a study to tackle the problem of
 gang-related crime in the UK; we present the intelligence and
-routinely gathered data available to a UK regional police force, and
+routinely-gathered data available to a UK regional police force, and
 describe an initial social network analysis of gangs in the Greater
 Manchester area of the UK between 2000-2006.
 
@@ -115,7 +119,7 @@ analysis, as well as a discussion of the potential UK policy
 applications of this work.
 
 \keywords{Gangs \and Gun crime \and Scale-free networks \and
-Small-world networks \and Social distance \and Crime policy \and Social network analysis}
+Small-world networks \and Social distance \and Communities \and Crime policy}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
 \end{abstract}
@@ -410,18 +414,29 @@ the \emph{Reason Reported Examples} column.
 
 \subsection{Limitations of the data}\label{sec:limitations}
 
-Overall, it is concerning that this
-data is used as a gang database, but without explicit
-qualifications. Furthermore, it is generally not purged, but
-membership would not necessarily have an effect on sentencing.
-Comparing to gang criteria by states in the USA, `{\emph{Identified by
-reliable source (police)}}', and `{\emph{associates with members}}'
-would secure membership in Florida~\citep{barrows-huff:2009}.
+In preparing our data for analysis, we faced the typical data quality
+issues referenced by \citet{xu+chen:2005}, specifically that a criminal
+network is a special kind of social network with emphasis on both
+secrecy and efficiency. Such networks are intentionally structured to
+ensure efficient communication among members without being
+detected~\citep{ferrara-et-al:2014}. The data problems therefore are:
+incompleteness, as criminal networks are covert networks that operate
+in secrecy and stealth, with missing nodes and links in networks;
+incorrectness, unintentional data entry errors or intentional
+deception by criminals; and, inconsistency, with many records of same
+person from difference contacts or sources.
 
-Criticism of gang databases ranges from the position of being
-`unconstitutional' if they are not correctly maintained, for instance,
-not regularly purged of citizens who have left the gang
-world~\citep{jacobs:2009}, to including inaccuracies:
+Overall, it is concerning that this data is used as a gang database,
+but without explicit qualifications. Furthermore, it is generally not
+purged, but membership would not necessarily have an effect on
+sentencing.  Comparing to gang criteria by states in the USA,
+`{\emph{Identified by reliable source (police)}}', and
+`{\emph{associates with members}}' would secure membership in
+Florida\\\citep{barrows-huff:2009}. Criticism of gang databases ranges
+from the position of being `unconstitutional' if they are not
+correctly maintained, for instance, not regularly purged of citizens
+who have left the gang world\\\citep{jacobs:2009}, to including
+inaccuracies:
 
 \begin{quote}
 ``{\emph{In sum, gang databases appear to be riddled
@@ -431,7 +446,6 @@ the worst of it. The root of the problem may be that even if properly
 applied, application of the subjective criteria would not produce
 useful results.}}''\\ \cite{wright:2005}
 \end{quote}
-
 
 It is important to be critical of information about gangs that come
 from the police or from journalists, which is often based on
@@ -452,6 +466,146 @@ a `gang' or being a `gang member'.
 
 \section{Identifying community structure}\label{sec:communitystructure}
 
+A key part of the analysis is concerned with identifying communities
+and community structure. While this is an important property of
+complex networks, an accurate definition of a community remains an
+open problem~\citep{liu-et-al:2014}. In \citet{orman-et-al:2011}, a
+community roughly corresponds to a group of nodes more densely
+interconnected, relatively to the rest of the network. In
+\citet{orman-et-al:2011b}, they use normalised mutual information
+(NMI) measure to assess the quality of the discovered community
+structure from 11 models. Similarly \citet{yan+gregory:2012} present a
+discussion of existing community detection algorithms -- RFT, CNM,
+Infomap, COPRA and the Louvain method -- compared against their method
+of edge detection integrated into community detection. It is not easy
+to determine which is best, and generally a measure is used that
+estimates the quality of community structures such as modularity
+(which measures internal consistency of identified communities with
+reference to a randomised null model with the same degree
+distribution). Their results had Infomap as the leading algorithm,
+followed by Walkrap, SpinGlass and Louvain. Infomap was used for the
+initial investigation of our network data, with Pajek also used for
+centrality and clustering coefficients (discussed in
+Section~\ref{sec:networkcharacteristics}). Infomap also gives the
+option to not force every node to be assigned to a single
+community. This is valuable as real world networks can have several
+overlapping communities, for example, a person may have family
+relationship circles, job circles, friend circles, hobby circles and
+so on. Contrast this with methods designed to work with homogenous
+data~\citep{ferrara-et-al:2014}.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{images/alldataplusmurderers}
+\caption{Infomap analysis of all data, including non-gang affiliated murders}
+\label{fig:infomap} 
+\end{figure}
+
+
+\begin{table*}[!htp]
+%\resizebox{\textwidth}{!}{
+\begin{tabularx}{\textwidth}{|l|Y|Y|Y|Y|Y|Y|Y|Y|Y|Y|}
+\hline
+ \multirow{2}{*}{Relationship} & \multicolumn{10}{l|}{Gang Membership
+   Relationships} \\\cline{2-11}
+ &  \multicolumn{1}{c|}{AA} &  \multicolumn{1}{c|}{BB} &  \multicolumn{1}{c|}{CC} &  \multicolumn{1}{c|}{DD} &  \multicolumn{1}{c|}{AB} &  \multicolumn{1}{c|}{AC} &  \multicolumn{1}{c|}{AD} & \multicolumn{1}{c|}{BC} & \multicolumn{1}{c|}{BD} & \multicolumn{1}{|c|}{CD} \\ 
+\hline
+Accomplice &  26 &  24 &  7 &  18 &  2 &  0 &  10 & 0 & 7 & 2 \\ 
+\hline
+Charged with &  0 &  0 &  2 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\
+\hline
+ Brother & 14 &  2 &  0 &  4 &  0 &  0 &  2 & 0 & 1 & 0 \\ 
+\hline
+Child &  0 &  1 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Parent &  0 &  1 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Relative &  4 &  0 &  4 &  10 &  0 &  0 &  4 & 0 & 1 & 0 \\ 
+\hline
+Sister &  0 &  0 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Spouse &  0 &  0 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Cohabitant &  0 &  0 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Friend &  70 &  96 &  29 &  30 & 2 &  0 &  28 & 12 & 5 & 0 \\ 
+\hline
+Girlfriend &  0 &  0 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Boyfriend &  0 &  0 &  0 &  0 &  0 &  0 &  0 & 0 & 0 & 0 \\ 
+\hline
+Other &  162 &  74 &  36 &  71 &  22 &  2 &  65 & 4 & 14 & 5 \\ 
+\hline
+Total &  276 &  198 &  78 &  133 &  26 &  2 &  109 & 16 & 28 & 7 \\ 
+\hline
+\end{tabularx}%}
+\caption{Link types between gang members. AA, BB, CC refers to all
+  those gang members who have links only to gang A, B and C
+  respectively. AB refers to links between gangs A and B}
+\label{tab:gangmemrel}
+\end{table*}
+
+As expected, looking at Table~\ref{tab:gangmemrel}, familial and
+friendship links are strong within individual gangs (AA, BB, CC, DD),
+and also gangs with affinity (AD, BC).  Accomplices are high within
+individual gangs and gangs with affinity (AA, BB, CC, DD, AD),
+although the high rate of accomplices for BD is surprising, perhaps
+accounted for by the relative and friendship links.
+
+\begin{table*}[!htp]
+%\resizebox{\textwidth}{!}{
+\begin{tabularx}{\textwidth}{|l|Y|Y|Y|Y|Y|Y|Y|}
+\hline
+ \multirow{2}{*}{Relationship} & \multicolumn{7}{l|}{Gang Membership
+   Relationships} \\\cline{2-8}
+ &  \multicolumn{1}{c|}{{\emph{a*}}} &  \multicolumn{1}{c|}{{\emph{b*}}} &  \multicolumn{1}{c|}{{\emph{c*}}} &  \multicolumn{1}{c|}{{\emph{ab*}}} &  \multicolumn{1}{c|}{{\emph{bc*}}} &  \multicolumn{1}{c|}{{\emph{ac*}}} &  \multicolumn{1}{c|}{{\emph{abc*}}} \\ 
+\hline
+Accomplice &  139 &  83 &  46 &  26 &  13 &  11 &  4 \\ 
+\hline
+Charged with &  5 &  10 &  6 &  1 &  1 &  2 &  0 \\ 
+\hline
+ Brother &  13 &  10 &  5 &  0 &  0 &  0 &  3 \\ 
+\hline
+Child &  8 &  6 &  3 &  0 &  0 &  0 &  0 \\ 
+\hline
+Parent &  15 &  0 &  2 &  1 &  0 &  0 &  0 \\ 
+\hline
+Relative &  72 &  41 &  9 &  10 &  1 &  2 &  4 \\  
+\hline
+Sister &  6 &  8 &  1 &  2 &  0 &  0 &  0 \\ 
+\hline
+Spouse &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\ 
+\hline
+Cohabitant &  0 &  1 &  1 &  0 &  0 &  0 &  0 \\ 
+\hline
+Friend &  394 &  265 &  92 &  112 &  65 &  26 &  14 \\ 
+\hline
+Girlfriend &  16 &  25 &  7 &  2 &  0 &  1 &  0 \\ 
+\hline
+Boyfriend &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\ 
+\hline
+Other &  814 &  346 &  261 &  204 &  78 &  44 & 22 \\ 
+\hline
+\end{tabularx}%}
+\caption{Link types between non-gang members and gang
+  members. {\emph{a*}} refers to all those non-gang members who have
+  links to gang A, and only gang A; {\emph{ab*}} refers to all those
+  non-gang members who have links to gang A and gang B, but to no
+  other gang; {\emph{abc*}} refers to all those non-gang members who
+  have links to gang A, gang B, and gang C, but to no other gang.}
+\label{tab:nongangmemrel}
+\end{table*}
+
+Looking at Table~\ref{tab:nongangmemrel}, it is unsurprising that we
+find greater numbers of links to members of single gangs ({\emph{a*}},
+{\emph{b*}}, and {\emph{c*}}) than multiple gangs ({\emph{ab*}},
+{\emph{bc*}}, {\emph{ac*}} and {\emph{abc*}}).  The relative
+proportions of relationships remain constant, when normalised by count
+of crimes for that class, with the exception of the {\emph{abc*}}
+categories of `Brother' and `Relative'. These are above the norm, and
+could explain their placement in the category of abc*, likely because
+of the familial links.
+
 In order to investigate community structure we removed any nodes with
 less than six connections (i.e. degree 6);
 Figure~\ref{fig:2002core_labelled} shows data from 2002, with the
@@ -461,8 +615,7 @@ Figure~\ref{fig:2002core_labelled} also showing the `go-betweens',
 labelled as \emph{ab*} and \emph{bc*}. Individuals who are only
 connected to one gang, and who are highly connected within themselves,
 are labelled \emph{a*} and \emph{b*}. In this way it is easier to see
-the communities.
-
+the communities. 
 
 \begin{figure}[!ht]
 \centering
@@ -472,6 +625,79 @@ the communities.
   members who are associated with individual gangs (\emph{a*}, \emph{b*}) or who are intermediaries (\emph{ab*}, \emph{bc*}).}
 \label{fig:2002core_labelled}
 \end{figure}
+
+Reviewing the {\emph{abc*}} non-gang members with the
+highest degree centrality, we can identify interesting patterns of
+relations. For instance, the following members: {\emph{\#107023}},
+{\emph{\#165035}}, {\emph{\#177519}} and {\emph{\#18170}}. When it
+comes to friendship, {\emph{\#107023}} and {\emph{\#165035}} have
+friends amongst rival gangs. When it comes to committing crimes
+together, presumably the opposite is true, only working with members
+of a preferred gang -- see {\emph{\#177519}} and {\emph{\#18170}}.
+
+\begin{verbatim}
+#107023: 
+Friend: b,a,a,b,a,a
+Other: a,a,a,a,d,d,d,d,d
+Relative: a
+\end{verbatim}
+
+\begin{verbatim}
+#165035:
+Friend: a, a
+Other: a,a,a,a,a,a,a,a,a,a,a,a,a,b,b,d,d,d,d
+\end{verbatim}
+
+\begin{verbatim}
+#177519:
+Accomplice: a,a,a,d,d,d,d
+Other: a,a,a,a,a,a,a,a,a
+\end{verbatim}
+
+\begin{verbatim}
+#18170:
+Accomplice: b,b,b				
+Friend: b,b,b,b,b,b,b
+Other: b,b,b,d
+\end{verbatim}
+
+Therefore to investigate this more thoroughly, we looked at the
+familial links.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{images/legend2006}
+\caption{Gangs A, B, C, D labelled, showing affinities between Gangs A
+  and D and Gangs B and C (for 2006).}
+\label{fig:legend2006} 
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{images/murdershrink.pdf}
+\caption{Gangs A, B, C, D and murder.}
+\label{fig:murdershrink} 
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{images/realrelatives.pdf}
+\caption{Relatives and gangs.}
+\label{fig:realrelatives} 
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{images/girlfriends.pdf}
+\caption{Girlfriend/boyfriend and gangs.}
+\label{fig:girlfriends} 
+\end{figure}
+
+We are not always as interested in how a systems network structure was
+formed as in how a networks extant structure influences the systems
+behaviour~\citep{rosvall-et-al:2010}. Flow, using the map equation, is
+an alternative to modularity, depending on the network type and
+desired analysis which we plan to investigate.
 
 
 \section{Network characterisation}\label{sec:networkcharacteristics}
@@ -483,23 +709,24 @@ small-world networks.
 \subsection{Small-world networks}\label{sec:smallworld}
 
 Table~\ref{tab:networkmeasuresyears} presents the clustering
-coefficients (CC)\\ \citep{WattsStrogatz1998} for each individual year,
-alongside the node and edge counts and various other measures to
+coefficients (CC)\\ \citep{WattsStrogatz1998} for each individual
+year, alongside the node and edge counts and various other measures to
 describe the network. For any simple connected graph \emph{G} with at
-least two vertices, the clustering coefficient (1-neighbourhood) measures the extent to
-which vertices linked to any given vertex \emph{v} are also linked to
-each other \citep{WattsStrogatz1998}. Or in other words, are the friends of my friends also my
-friends? This is 1-neighbourhood clustering. The clustering
-coefficient 2-neighbourhood is a less stringent condition, and states:
-of the friends of my friends, are they linked to me by other friends?
+least two vertices, the clustering coefficient (1-neighbourhood)
+measures the extent to which vertices linked to any given vertex
+\emph{v} are also linked to each other \citep{WattsStrogatz1998}. Or
+in other words, are the friends of my friends also my friends? This is
+1-neighbourhood clustering. The clustering coefficient 2-neighbourhood
+is a less stringent condition, and states: of the friends of my
+friends, are they linked to me by other friends?
 
 The links presented in Table~\ref{tab:networkmeasuresyears} are
 cumulative; that is, the links and nodes for 2002 include not only the
 new links and nodes for 2002, but also those for 2001 and 2000.
 
-\begin{table}[htb]
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\begin{table*}[!htp]
+%\resizebox{\columnwidth}{!}{
+\begin{tabularx}{\textwidth}{|l|Y|Y|Y|Y|Y|Y|Y|}
 \hline
  Measure &  2000 &  2001 &  2002 &  2003 &  2004 &  2005 &  2006 \\ 
 \hline
@@ -529,10 +756,10 @@ new links and nodes for 2002, but also those for 2001 and 2000.
 \hline
  CC (per year) &  0.24 &  0.57 &  0.34 &  0.15 &  0.62 &  0.25 &  0.30 \\ 
 \hline
-\end{tabular}}
+\end{tabularx}%}
 \caption{Network measures for 2000-2006. Clustering coefficients are always greater than 4/n. Average path lengths are always less than log(n).}
 \label{tab:networkmeasuresyears}
-\end{table}
+\end{table*}
 
 
 Table~\ref{tab:networkmeasuresgang} shows the same network measures,
@@ -945,7 +1172,17 @@ gang members are gun users.
 
 \subsection{Link analysis}
 
-We require a better analysis of link types, for instance in the study
+\citet{duijn-et-al:2014} describe disruption techniques, and the
+notion of social capital of individuals in networks, often calculated
+by some measure of centrality. For instance the strength of weak ties
+lies in the offering of new opportunities in an otherwise redundant
+fully connected network. They follow research suggesting that
+identifying the actors fulfilling the most specialised tasks offer
+great opportunities for destabilising the criminal network. Their
+ideas around human capital, substitutability, criminal value chains
+and the crime scripting method will be incorporated into future work.
+
+We thus require a better analysis of link types, for instance in the study
 by \citet{PatacchiniZenou2008} of whether weak ties play an important
 role in explaining criminal activities. They developed a model where
 individuals learn about crime opportunities by interacting with other
@@ -1015,37 +1252,6 @@ complete network, plus additional networks for relatives
 (Figure~\ref{fig:realrelatives}) and relationships
 (Figure~\ref{fig:girlfriends}) and collapsed gang networks with murder
 nodes.
-
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=\columnwidth]{images/legend2006}
-\caption{Gangs A, B, C, D labelled, showing affinities between Gangs A
-  and D and Gangs B and C (for 2006).}
-\label{fig:legend2006} 
-\end{figure}
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=\columnwidth]{images/murdershrink.pdf}
-\caption{Gangs A, B, C, D and murder.}
-\label{fig:murdershrink} 
-\end{figure}
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=\columnwidth]{images/realrelatives.pdf}
-\caption{Relatives and gangs.}
-\label{fig:realrelatives} 
-\end{figure}
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=\columnwidth]{images/girlfriends.pdf}
-\caption{Girlfriend/boyfriend and gangs.}
-\label{fig:girlfriends} 
-\end{figure}
-
 
 We should also be careful when looking at data and creating networks
 from it. However, \citet{Klerks2001} cites the case of the
