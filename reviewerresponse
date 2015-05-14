@@ -1,0 +1,38 @@
+We wish to thank the reviewer for their valuable and insightful comments; we are pleased that they feel this work deals with a relevant research topic that fits the aims and goals of this journal, as well as being clear and well written. Alongside the research and technical contributions, we also propose useful practical policy interventions to assist decision-makers in exploiting rich police and crime datasets such as ours.
+
+We have addressed all of the reviewers substantive points and are pleased to revise and resubmit. In order:
+
+1. Finding communities
+
+Section 4 ("Identifying community structure") has been substantially improved and updated, addressing the comments about being brief and somewhat vague and confusing. We have provided further insight and explanation of the community detection algorithm (using Infomap) as well as figures, data and analysis.
+
+2. Further information about ab*
+
+As requested, we have provided details on the group of vertices which have not been classified in any of discovered communities (see Fig.3 and the group of vertices labelled ab*). We have completed further analysis resulting in extended discussion in Section 4 and the new data presented in Tables 3 and 4, as well as a reorganisation of some of the other figures to provide further context to the familial links.
+
+3. Analysis of clustering coefficient
+
+We have restructured and added to the discussion in Section 5 on clustering coefficients and the emergence of gangs, to provide more clarity and detail. We concur that the network size has impact on the clustering coefficient, which are quite large in comparison with other real social networks. Table 5 has been expanded for clarity.
+
+4. Literature and references
+
+We have improved and updated the relationship to the literature, adding 10+ relevant references throughout the paper (including the three suggested by the reviewer -- thank you).
+
+5. Contribution of link analysis
+
+We have restructured and added to the discussion in Section 6.2 on link analysis, linking back to the key domain literature as well as an improved discussion of the importance of weak ties in crime (and how that relates to our work). Some of the figures previously in this section have been moved to Section 4 to aid clarity and readability.
+
+6. Novelty of work
+
+We acknowledge that this paper builds upon previous work but we can confirm that this manuscript represents a substantially extended (40%+) and revised version of our short ASONAM 2014 papers (4 pages), with updated background, literature review and methodology, along with significant new data and analysis. A number of the figures and tables present data that have not been published previous, particularly in Sections 4 and 6. Furthermore, this paper frames the bigger picture of the project and the potential from exploiting the rich dataset. We have updated the thanks section in the preamble to better reflect this situation and the contributions of the paper. We also confirm that this work has not been published elsewhere in its current form and is not under consideration by another journal.
+
+In summary, we would like to reiterate our thanks to the reviewer for their thoughtful and insightful review comments, which has improved the clarity and contributions of our paper. We are pleased their general impression about the paper was positive and we feel that this revised submission has been substantially improved and is ready for publication in Social Network Analysis and Mining.
+
+
+With kind regards,
+
+Dr Tom Crick
+tcrick@cardiffmet.ac.uk
+
+Dr Giles Oatley
+goatley@cardiffmet.ac.uk
