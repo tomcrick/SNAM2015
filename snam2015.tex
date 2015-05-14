@@ -9,7 +9,7 @@
 %
 \usepackage{graphicx}
 %
-% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+% \usepackage{mathptmx} 
 %
 % insert here the call for the packages your document requires
 %\usepackage{latexsym}
@@ -42,8 +42,9 @@
 \begin{document}
 
 \title{Measuring UK Crime Gangs: A Social Network Problem
-\thanks{This article is an extended and revised version of the author's ASONAM
-  2014 papers~\citep{oatley+crick_asonam2014,oatley+crick_fosintsi2014}, with updated background, methodology and analysis.}
+\thanks{This article is a substantially extended and revised version of the authors' ASONAM
+  2014 papers~\citep{oatley+crick_asonam2014,oatley+crick_fosintsi2014},
+  with an updated research and policy context, literature review and methodology, along with new data and analysis.}
 }
 %\subtitle{Do you have a subtitle?\\ If so, write it here}
 
@@ -59,35 +60,6 @@
   Cardiff Metropolitan University, Cardiff CF5 2YB, UK\\
   \email{\{goatley,tcrick\}@cardiffmet.ac.uk}
 }
-
-%cover letter
-% Dear Editor-in-Chief,
-
-% Please find enclosed our manuscript, ``Measuring UK Crime Gangs: A
-% Social Network Problem'' by Oatley and Crick, which we would like to
-% submit for publication as an original article in Social Network
-% Analysis and Mining. This is an invited submission from our work
-% presented at ASONAM 2014 in August 2014.
-
-% To our knowledge, this is the first report showing preliminary
-% outcomes from a study to tackle the problem of
-% gang-related crime in the UK during the 2000s; we believe our
-% findings would appeal to the readership of SNAM.
-
-% We confirm that this manuscript has not been published elsewhere and
-% is not under consideration by another journal. As per your email dated
-% 12 October 2014, this manuscript represents an extended and revised
-% version of our ASONAM 2014 papers, with updated background,
-% methodology and analysis. All authors have approved the manuscript and
-% agree with its submission to SNAM.
-
-% Please address all correspondence to me at tcrick@cardiffmet.ac.uk; we
-% look forward to hearing from you at your earliest convenience.
-
-% With kind regards,
-
-% Dr Tom Crick
-% tcrick@cardiffmet.ac.uk
 
 \date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
@@ -114,8 +86,8 @@ implying that the formation of gangs is not a random event. However,
 we are not yet able to conclude anything significant about scale-free
 characteristics due to insufficient sample size. A final analysis
 looks at gang roles and develops further insight into the nature of
-the different link types, referring to Klerk’s `third generation'
-analysis, as well as a discussion of the potential UK policy
+the different link types, referring to Klerks' `third generation'
+analysis, as well as a brief discussion of the potential UK policy
 applications of this work.
 
 \keywords{Gangs \and Gun crime \and Scale-free networks \and
@@ -331,9 +303,9 @@ and it is clear that it is a rich source of information. However,
 there are also many inconsistencies, and if this data is to be used to
 its full potential it will require a great deal of pre-processing,
 using natural language processing, matching with regular expressions,
-information extraction, and so on. There should also be further
-categorisation applied, considering that 50\% of the data is
-classified of type \emph{Other}.
+information extraction, and so on. As part of this pre-processing and
+data cleansing, further categorisation should be applied, as 50\% of
+the data is classified of type \emph{Other}.
 
 
 \begin{table*}[!ht]
@@ -486,7 +458,7 @@ distribution). Their results had Infomap as the leading algorithm,
 followed by Walkrap, SpinGlass and Louvain. Infomap was used for the
 initial investigation of our network data, with Pajek also used for
 centrality and clustering coefficients (discussed in
-Section~\ref{sec:networkcharacteristics}). Infomap also gives the
+section~\ref{sec:networkcharacteristics}). Infomap also gives the
 option to not force every node to be assigned to a single
 community. This is valuable as real world networks can have several
 overlapping communities, for example, a person may have family
@@ -540,8 +512,8 @@ Total &  276 &  198 &  78 &  133 &  26 &  2 &  109 & 16 & 28 & 7 \\
 \hline
 \end{tabularx}%}
 \caption{Link types between gang members. AA, BB, CC refers to all
-  those gang members who have links only to gang A, B and C
-  respectively. AB refers to links between gangs A and B}
+  those gang members who have links only to Gang A, B and C
+  respectively. AB refers to links between Gangs A and B}
 \label{tab:gangmemrel}
 \end{table*}
 
@@ -589,10 +561,10 @@ Other &  814 &  346 &  261 &  204 &  78 &  44 & 22 \\
 \end{tabularx}%}
 \caption{Link types between non-gang members and gang
   members. {\emph{a*}} refers to all those non-gang members who have
-  links to gang A, and only gang A; {\emph{ab*}} refers to all those
-  non-gang members who have links to gang A and gang B, but to no
+  links to Gang A, and only Gang A; {\emph{ab*}} refers to all those
+  non-gang members who have links to Gang A and Gang B, but to no
   other gang; {\emph{abc*}} refers to all those non-gang members who
-  have links to gang A, gang B, and gang C, but to no other gang.}
+  have links to Gang A, Gang B, and Gang C, but to no other gang.}
 \label{tab:nongangmemrel}
 \end{table*}
 
@@ -662,9 +634,22 @@ Other: b,b,b,d
 \end{verbatim}
 
 Therefore to investigate this more thoroughly, we looked at the
-familial links.
+familial links. While it is hard it determine, it appears that
+non-gang links have a significant number of family links. The complete
+database of links (1980-2007) is plotted in
+Figure~\ref{fig:legend2006}, with each of the four main gangs
+represented by a different colour. The affiliations or `alignments' of
+the gangs was presented in Figure~\ref{fig:positive}, where positively
+aligned Gangs A and D are coloured red and yellow respectively, and
+the positively aligned Gangs B and C are coloured blue and
+green. Offenders who have committed murders are presented as black
+nodes, and non-gang members as white nodes. We limit ourselves in this
+paper to a visual examination of the complete network, plus additional
+networks for relatives (Figure~\ref{fig:realrelatives}) and
+relationships (Figure~\ref{fig:girlfriends}) and collapsed gang
+networks with murder nodes.
 
-\begin{figure}[!ht]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=\columnwidth]{images/legend2006}
 \caption{Gangs A, B, C, D labelled, showing affinities between Gangs A
@@ -672,21 +657,21 @@ familial links.
 \label{fig:legend2006} 
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=\columnwidth]{images/murdershrink.pdf}
 \caption{Gangs A, B, C, D and murder.}
 \label{fig:murdershrink} 
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=\columnwidth]{images/realrelatives.pdf}
 \caption{Relatives and gangs.}
 \label{fig:realrelatives} 
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=\columnwidth]{images/girlfriends.pdf}
 \caption{Girlfriend/boyfriend and gangs.}
@@ -695,7 +680,7 @@ familial links.
 
 We are not always as interested in how a systems network structure was
 formed as in how a networks extant structure influences the systems
-behaviour~\citep{rosvall-et-al:2010}. Flow, using the map equation, is
+behaviour\\\citep{rosvall-et-al:2010}. Flow, using the map equation, is
 an alternative to modularity, depending on the network type and
 desired analysis which we plan to investigate.
 
@@ -722,7 +707,10 @@ friends, are they linked to me by other friends?
 
 The links presented in Table~\ref{tab:networkmeasuresyears} are
 cumulative; that is, the links and nodes for 2002 include not only the
-new links and nodes for 2002, but also those for 2001 and 2000.
+new links and nodes for 2002, but also those for 2001 and
+2000. Table~\ref{tab:networkmeasuresgang} shows the same network
+measures, but this time the data has been sliced into the members of
+the Gangs A, B, C and D.
 
 \begin{table*}[!htp]
 %\resizebox{\columnwidth}{!}{
@@ -760,11 +748,6 @@ new links and nodes for 2002, but also those for 2001 and 2000.
 \caption{Network measures for 2000-2006. Clustering coefficients are always greater than 4/n. Average path lengths are always less than log(n).}
 \label{tab:networkmeasuresyears}
 \end{table*}
-
-
-Table~\ref{tab:networkmeasuresgang} shows the same network measures,
-but this time the data has been sliced into the members of the Gangs
-A, B, C and D.
 
 
 \begin{table}[htb]
@@ -828,13 +811,12 @@ conclude that our networks have small-world characteristics.
 \subsection{Scale-free networks}\label{sec:scalefree}
 
 This section also refers to the preceding tables, where we find a
-mixture of evidence for and against the case for scale-free networks.
-
-Plotting the clustering coefficient as a function of the number of
-nodes $n$, should follow the power-law distribution for scale-free
-networks (see later experiments), with the clustering coefficient
-being roughly four times larger than random
-networks~\citep{AlbAlbNak04}. The value of the clustering coefficient
+mixture of evidence for and against the case for scale-free
+networks. Plotting the clustering coefficient as a function of the
+number of nodes $n$, should follow the power-law distribution for
+scale-free networks (see later experiments), with the clustering
+coefficient being roughly four times larger than random
+networks \citep{AlbAlbNak04}. The value of the clustering coefficient
 for a random networks will be \emph{1/n}. In this way we are able to
 compare the values of \emph{4/n} against CC in
 Tables~\ref{tab:networkmeasuresyears} and
@@ -847,11 +829,10 @@ higher than would be expected in a random network.
 The diameter of the network (longest path length) should be
 approximately \emph{log(log(n))} for scale-free networks. In both
 cases (for the gangs and the years) the real values are significantly
-higher than would be expected for a scale-free network.
-
-The average path length should be approximately \emph{log(n)} for
-scale-free networks. For both the `years' and `gangs' data it was
-actually smaller than \emph{log(n)}, indicating scale-free networks.
+higher than would be expected for a scale-free network. The average
+path length should be approximately \emph{log(n)} for scale-free
+networks. For both the `years' and `gangs' data it was actually
+smaller than \emph{log(n)}, indicating scale-free networks.
 
 The statistics on degree centrality were low, indicating that there is
 no group leader. As we know when Gangs C and D are formed (2001
@@ -1191,17 +1172,16 @@ empirical analysis since they find that weak ties, as measured by
 friends of friends, have a positive impact on criminal activities.
 
 To give a better idea of the interconnectedness of the gangs, the
-following Figures~\ref{fig:chain2001} and \ref{fig:chain2004}) demonstrate
-\emph{cycles} in the data, passing from one gang to another via
-intermediaries.  These examples have been chosen from the 2001 and
-2004 data when the new gangs emerged. Plotted in this way we can see
-the complex relationships between (rival and sympathetic) offenders in
-this geographically small region.
+following Figures~\ref{fig:chain2001} and \ref{fig:chain2004})
+demonstrate \emph{cycles} in the data, passing from one gang to
+another via intermediaries.  These examples have been chosen from the
+2001 and 2004 data when the new gangs emerged. Plotted in this way we
+can see the complex relationships between (rival and sympathetic)
+offenders in this geographically small region. Furthermore, for 2001
+and 2004, it would be interesting to examine the kinds of links within
+each gang which emerged.
 
-Furthermore, for 2001 and 2004, it would be interesting to examine the
-kinds of links within each gang which emerged.
-
-\begin{figure}[!ht] 
+\begin{figure}[!htp] 
 \centering
 \includegraphics[width=\columnwidth]{images/chain2001}
 \caption{Cycle (2001). The tension is between Gangs A (red), B (blue),
@@ -1210,32 +1190,21 @@ kinds of links within each gang which emerged.
 \end{figure}
 
 
-\begin{figure}[!ht] 
+\begin{figure}[!htp] 
 \centering
 \includegraphics[width=\columnwidth]{images/chain2004}
 \caption{2004 cycle; the tension is between Gangs A (red), D (yellow) and B (blue), C (green).}
 \label{fig:chain2004}
 \end{figure}
 
-
-The complete database of links (1980-2007) is plotted in
-Figure~\ref{fig:legend2006}, with each of the four main gangs
-represented by a different colour. The affiliations or `alignments' of
-the gangs was presented in Figure~\ref{fig:positive}, where positively
-aligned Gangs A and D are coloured red and yellow respectively, and
-the positively aligned Gangs B and C are coloured blue and
-green. Offenders who have committed murders are presented as black
-nodes, and non-gang members as white nodes.
-
 This data presentation shows many things about the gang structure, for
 instance that the offenders who commit murders are not necessarily the
 most connected individuals (highest degree), in fact they are quite
 often peripheral nodes. Secondly, it is clear that there are a
-significant number of common connections between rival gangs.
-
-It would be useful to investigate intermediate-scale features, neither
-at node level nor network level, known as core-periphery structure,
-which entails identifying densely-connected core nodes and
+significant number of common connections between rival gangs. It would
+be useful to investigate intermediate-scale features, neither at node
+level nor network level, known as core-periphery structure, which
+entails identifying densely-connected core nodes and
 sparsely-connected periphery nodes. In contrast to communities, the
 nodes in a core are also reasonably well-connected to those in the
 periphery~\citep{rombach-et-al:2014}.
@@ -1246,12 +1215,6 @@ One way is using the continuous scoring devised by
 (i.e., core scores) along a continuous spectrum between nodes that lie
 most deeply in a network core or at the far reaches of a network
 periphery.
-
-We limit ourselves in this paper to a visual examination of the
-complete network, plus additional networks for relatives
-(Figure~\ref{fig:realrelatives}) and relationships
-(Figure~\ref{fig:girlfriends}) and collapsed gang networks with murder
-nodes.
 
 We should also be careful when looking at data and creating networks
 from it. However, \citet{Klerks2001} cites the case of the
@@ -1312,23 +1275,29 @@ seeking observations on this event.
 
 The work presented in this paper contains our initial findings about
 the offender/gang networks in Manchester in the UK, using network
-analysis, extending and building upon previous
+analysis, significantly extending previous
 work~\citep{oatley+crick_asonam2014,oatley+crick_fosintsi2014}. The
 police crime recording database is routinely gathered and available
-for analysis. The additional databases of histories and associates of
-gang offenders are routinely gathered by the UK's National Crime
+for analysis; in this instance it has been gathered about a six year
+time period (2000-2006), allowing substantive analysis of gang
+formation, development and interaction. The additional databases of
+histories and associates of gang offenders are routinely gathered by
+the UK's National Crime
 Agency~\footnote{\url{http://www.nationalcrimeagency.gov.uk/}}, who
-investigate gang and gun-related crimes. These data sources are
-potential rich sources of information for data science and analytical
-technologies to deliver crime prevention and detection decision
-support systems. Criminal behaviour (modus operandi and offence
-profiling) is to be incorporated into social network analysis.  This
-approach uses retrospective methodologies, appropriate given the time
-scale and the pilot nature of most work. Future work, such as looking
-at family and friends networks, crimes histories and progression of
-crimes, must be given the resources in order to increase the validity
-of decisions concerning their contribution, as well as develop wider
-socio-cultural outcomes.
+investigate gang and gun-related crimes. These data are potential rich
+sources of information for data science and analytical technologies to
+deliver crime prevention and detection decision support
+systems. Criminal behaviour (modus operandi and offence profiling) is
+to be incorporated into social network analysis.  This approach uses
+retrospective methodologies, appropriate given the time scale and the
+pilot nature of most work. Future work, such as looking at family and
+friends networks, crimes histories, progression of crimes, using GIS
+viewsheds to aid social network
+analysis~\citep{oatley+crick-gisruk2015} and mapping against large
+social media datasets \citep{procter-et-al:2013,burnap-et-al:2014},
+must be given the resources in order to increase the validity of
+decisions concerning their contribution, as well as develop wider
+positive socio-cultural outcomes.
 
 The uses of this technology in an operational context are thus
 significant. As highlighted in\\ \citet{golding+mcclory:2008}, poor
